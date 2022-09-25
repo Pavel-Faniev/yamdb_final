@@ -1,6 +1,5 @@
 import uuid
 
-
 from django.contrib.auth import get_user_model
 from django.core.mail import EmailMessage
 from django.db.models import Avg
