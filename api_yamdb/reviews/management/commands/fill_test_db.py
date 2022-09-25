@@ -1,9 +1,11 @@
-from sys import stdout
-from django.core.management.base import BaseCommand
-from ...models import Title, Genre, Category, Review, Comment
-from django.contrib.auth import get_user_model
 import csv
+from sys import stdout
+
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
+
+from ...models import Category, Comment, Genre, Review, Title
 
 User = get_user_model()
 
@@ -15,7 +17,7 @@ class Command(BaseCommand):
     """
     help = 'import data'
 
-    def _load_table_data(file_name, model_name):
+    def _load_table_data(self, file_name, model_name):
         """Функция создает записи в таблице"""
 
         # данный словарь нужен, чтобы функция поменяла, для каких

@@ -1,5 +1,6 @@
 import uuid
 
+from api_yamdb.settings import FROM_EMAIL
 from django.contrib.auth import get_user_model
 from django.core.mail import EmailMessage
 from django.db.models import Avg
@@ -10,8 +11,8 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenViewBase
-from api_yamdb.settings import FROM_EMAIL
 from reviews.models import Category, Comment, Genre, Review, Title
+
 
 from .filters import TitleFilter
 from .permissions import (IsAdminOrReadOnly, IsAdminOrSuperUser,
@@ -35,7 +36,7 @@ class ViewsUtilityMethods():
         confirmation_code = uuid.uuid4()
         return confirmation_code
 
-    def confirmation_code_send(confirmation_code: str, to_email: str):
+    def confirmation_code_send(self, confirmation_code: str, to_email: str):
         """Отправляет код подтверждения на почту"""
 
         email = EmailMessage(
