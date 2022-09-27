@@ -61,4 +61,12 @@ __При необходимости создайте резервную копи
  docker-compose exec web python manage.py dumpdata > fixtures.json
 ```
 
+__Проект доступен по ссылками__
+```
+130.193.53.238/admin/
+```
+```
+130.193.53.238/redoc/
+```
+
 https://github.com/Pavel-Faniev/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
